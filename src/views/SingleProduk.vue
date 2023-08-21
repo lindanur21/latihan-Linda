@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
     <section class="py-12 sm:py-16"> 
       <div class="container mx-auto px-4">
         <nav class="flex">
@@ -169,4 +169,22 @@
       </div>
     </section>
 
+</template> -->
+
+<template>
+  ada
+  {{ slug }}
+  {{ getid }}
 </template>
+<script>
+import { mapGetters, mapState } from 'vuex';
+export default {
+  props: ['slug'],
+  computed: {
+    ...mapState('product', ['getid'])
+  },
+  mounted() {
+    this.$store.dispatch('product/fetchSingleProduct', this.slug)
+  }
+}
+</script>

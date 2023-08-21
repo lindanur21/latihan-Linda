@@ -1,7 +1,7 @@
-<template>
+<!-- <template> -->
     <!--Product-->
 
-        <div class="bg-white">
+        <!-- <div class="bg-white">
           <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
             <h2 class="sr-only">Products</h2>
 
@@ -33,10 +33,10 @@
                 </div>
                 <h3 class="mt-4 text-sm text-gray-700">Casing Doraemon</h3>
                 <p class="mt-1 text-lg font-medium text-gray-900">Rp. 45.000 - Rp. 50.000</p>
-              </a>
+              </a> -->
 
               <!-- More products... -->
-            </div>
+            <!-- </div>
           </div>
         </div>
 
@@ -73,10 +73,45 @@
               </div>
               <h3 class="mt-4 text-sm text-gray-700">Casing Cantik dan Lucu</h3>
               <p class="mt-1 text-lg font-medium text-gray-900">Rp. 35.000 - Rp. 40.000</p>
-            </a>
+            </a> -->
 
             <!-- More products... -->
-          </div>
+          <!-- </div>
         </div>
       </div>
+</template> -->
+
+<template>
+  <h1 class="mb-8 text-center font-sans text-5xl font-bold mt-5">Product</h1>
+  <div class="grid grid-cols-4 gap-4">
+    <div class=" flex flex-container text-center" v-for="product in getProduct.data" :key="product.id">
+      <article
+        class="mx-auto my-4 flex w-full flex-col overflow-hidden border border-gray-300 bg-white text-gray-900 transition hover:translate-y-2 hover:shadow-lg">
+        <img
+          src="../assets/casing hp.jpg"
+          class="h-56 w-full object-cover" alt="" />
+        <h3 class="mt-4 mb-3 text-xl font-semibold xl:text-2xl">{{ product.name }}</h3>
+        <p class="mb-4 text-base font-light">{{ product.slug }}</p>
+        <h3 class="mt-4 mb-3 text-l font-semibold xl:text-2xl">Rp {{ product.base_price }}</h3>
+        <router-link :to="'/singleproduct/' + product.slug">
+          klik
+        </router-link>
+      </article>
+    </div>
+  </div>
 </template>
+  
+<script>
+import { mapGetters, mapActions } from 'vuex';
+export default {
+  computed: {
+    ...mapGetters('product', ['getProduct']),
+  },
+  methods: {
+    ...mapActions('product', ['fetchProduct']),
+  },
+  created() {
+    this.fetchProduct();
+  },
+}
+</script>

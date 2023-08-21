@@ -7,6 +7,8 @@ import SingleProduk from "../views/SingleProduk.vue";
 import Contact from "../views/Contact.vue";
 import Checkout from "../views/Checkout.vue";
 import Cart from "../views/Cart.vue";
+import Merk from "../views/Merk.vue";
+import Kategori from "../views/Kategori.vue";
 
 const routes = [
     {
@@ -31,7 +33,7 @@ const routes = [
         component: Produk,
     },
     {
-        path: "/singleproduk",
+        path: "/singleproduk/:slug",
         name: "SingleProduk",
         component: SingleProduk,
     },
@@ -49,6 +51,16 @@ const routes = [
         path: "/cart",
         name: "Cart",
         component: Cart,
+    },
+    {
+        path: "/merk",
+        name: "Merk",
+        component: Merk,
+    },
+    {
+        path: "/kategori",
+        name: "Kategori",
+        component: Kategori,
     },
 ];
 
