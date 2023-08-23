@@ -9,6 +9,7 @@ import Checkout from "../views/Checkout.vue";
 import Cart from "../views/Cart.vue";
 import Merk from "../views/Merk.vue";
 import Kategori from "../views/Kategori.vue";
+import Profile from "../views/Profile.vue";
 
 const routes = [
     {
@@ -26,6 +27,7 @@ const routes = [
         path: "/register",
         name: "Register",
         component: Register,
+        meta: {requireGuest: true},
     },
     {
         path: "/produk",
@@ -33,7 +35,7 @@ const routes = [
         component: Produk,
     },
     {
-        path: "/singleproduk/:slug",
+        path: "/singleproduk",
         name: "SingleProduk",
         component: SingleProduk,
     },
@@ -62,6 +64,11 @@ const routes = [
         name: "Kategori",
         component: Kategori,
     },
+    {
+        path: "/profile",
+        name: "Profile",
+        component: Profile,
+    },
 ];
 
 const router = createRouter({
@@ -76,13 +83,20 @@ router.beforeEach((to, from, next) => {
         next();
     }
 });
-
 // router.beforeEach((to, from, next) => {
-//     if (to.meta.requireLogin && store.getters["auth/isAuthenticated"]) {
-//         next("/login"); // redirect to home
+//     if (to.meta.requireRegister && store.getters["auth1/isAuthenticated"]) {
+//         next("/"); // redirect to home
 //     } else {
 //         next();
 //     }
 // });
+
+router.beforeEach((to, from, next) => {
+    if (to.meta.requireLogin && store.getters["auth/isAuthenticated"]) {
+        next("/login"); // redirect to home
+    } else {
+        next();
+    }
+});
 
 export default router;

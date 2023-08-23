@@ -12,7 +12,7 @@ const store = createStore({
         auth,
         merk,
         kategori,
-        product
+        product,
     },
 });
 
