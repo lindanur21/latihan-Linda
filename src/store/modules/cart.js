@@ -24,8 +24,28 @@ const cart = {
                 alert('Ada Error')
                 console.log(error)
             }
+        },
+
+        async removeFromCart({ commit, dispatch }, cartId) {
+            try {
+                const response = await axios.post(
+                    `https://ecommerce.olipiskandar.com/api/v1/carts/destroy`,
+                    {
+                        cart_id: cartId,
+                    },
+                    {
+                        headers: {
+                            Authorization: `Bearer ${localStorage.getItem("token")}`,
+                        },
+                    }
+                );
+                console.log(response.data.message);
+                dispatch("fetchCart");
+            } catch (error) {
+                alert("Error removing item from cart");
+                console.log(error);
+            }
         }
-       
         
     },
     mutations:{

@@ -4,11 +4,11 @@ const produk = {
   namespaced: true,
   state: {
     produkData: [],
-    singleProduct: [],
-    cart: [],
+    cart: []
   },
   getters: {
     getProduk: (state) => state.produkData,
+    //
     getProdukBySlug: (state) => (produkSlug) => {
         console.log("ProdukSlug:", produkSlug);
         console.log("ProdukData:", state.produkData);
@@ -27,6 +27,7 @@ const produk = {
         console.log(error);
       }
     },
+    //
     async fetchSingleProduk({ commit }, produkSlug){
         try{
             const response = await axios.get(
@@ -38,38 +39,37 @@ const produk = {
             console.log(error);
         }
     },
-  },
-  async addToCart({ commit }, produkId) {
-            try {
-              const response = await axios.post(
-                "https://ecommerce.olipiskandar.com/api/v1/carts/add",
-                {
-                    "variation_id": produkId,
-                    "qty":  1,
-                    "temp_user_id": null,
-                }, {
-                headers: {
-                    'Authorization': `Bearer ${localStorage.getItem("token")}`
-                }
-                });
-                commit("ADD_TO_CART", response.data)
-                console.log(response.data)
-            } catch (error) {
-              console.error(error);
-
+    async addToCart({ commit }, productId) {
+        try {
+          const response = await axios.post(
+            "https://ecommerce.olipiskandar.com/api/v1/carts/add",
+            {
+                "variation_id": productId,
+                "qty":  1,
+                "temp_user_id": null,
+            }, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem("token")}`
             }
-          },
+            });
+            commit("ADD_TO_CART", response.data)
+            console.log(response.data)
+        } catch (error) {
+          console.error(error);
 
+        }
+    },
+  },
   mutations: {
     SET_PRODUK(state, produk) {
       state.produkData = produk;
     },
-    SET_SINGLE_PRODUK(state, produk) {
+    SET_SINGLE_PRODUK(state, produk) { 
         state.singleProduk = produk;
-    },
+      },
     ADD_TO_CART(state, cart) {
-            state.cart = cart
-        },
+        state.cart = cart
+    },
   },
 };
 

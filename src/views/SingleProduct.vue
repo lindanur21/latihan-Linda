@@ -144,6 +144,7 @@
                                 <!-- <span class="text-base">/month</span> -->
                             </div>
                             <div v-if="token">
+                                <!-- <router-link to="/cart"> -->
                                 <button @click="addToCart(product.id)" type="button"
                                     class="inline-flex items-center justify-center rounded-md border-2 border-transparent bg-gray-900 bg-none px-12 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-gray-800">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 mr-3 h-5 w-5" fill="none"
@@ -153,6 +154,7 @@
                                     </svg>
                                     Add to cart
                                 </button>
+                                <!-- </router-link> -->
                             </div>
                             <div v-else>
                                 <router-link to="/login">
@@ -282,3 +284,31 @@ export default {
 
 };
 </script>
+
+<!-- <script>
+import { mapActions, mapGetters } from 'vuex';
+
+export default {
+    computed: {
+        ...mapGetters('cart', ['getCart']),
+        totalHarga() {
+            this.total = this.getCart.reduce((acc, product) => {
+                return acc + parseFloat(product.regular_price);
+            }, 0);
+            return this.total.toFixed(2);
+        },
+    },
+    methods: {
+        ...mapActions('cart', ['fetchCart']),
+        ...mapActions('product', ['fetchProduk']),
+        ...mapActions('product', ['addToCart']),
+    },
+    beforeMount() {
+        this.fetchProduk();
+        this.fetchCart();
+    },
+    mounted() {
+        this.fetchCart();
+    },
+}
+</script> -->
