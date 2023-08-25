@@ -3,7 +3,8 @@ import Home from "../views/Home.vue";
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
 import Produk from "../views/Produk.vue";
-import SingleProduk from "../views/SingleProduk.vue";
+//import SingleProduk from "../views/SingleProduk.vue";
+import SingleProduct from "../views/SingleProduct.vue";
 import Contact from "../views/Contact.vue";
 import Checkout from "../views/Checkout.vue";
 import Cart from "../views/Cart.vue";
@@ -34,10 +35,15 @@ const routes = [
         name: "Produk",
         component: Produk,
     },
+    // {
+    //     path: "/singleproduk",
+    //     name: "SingleProduk",
+    //     component: SingleProduk,
+    // },
     {
-        path: "/singleproduk",
-        name: "SingleProduk",
-        component: SingleProduk,
+        path: "/singleproduct",
+        name: "SingleProduct",
+        component: SingleProduct,
     },
     {
         path: "/kontak",

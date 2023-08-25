@@ -1,4 +1,5 @@
 <template>
+  <center>
     <div class="m-10 max-w-sm">
       <div class="rounded-lg border bg-white px-4 pt-8 pb-10 shadow-lg">
         <div class="relative mx-auto w-36 rounded-full">
@@ -16,6 +17,7 @@
         </ul>
       </div>
     </div>
+    </center>
 
 </template>
 
