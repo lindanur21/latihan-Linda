@@ -144,7 +144,7 @@
                                 <!-- <span class="text-base">/month</span> -->
                             </div>
                             <div v-if="token">
-                                <!-- <router-link to="/cart"> -->
+                                <router-link to="/cart">
                                 <button @click="addToCart(product.id)" type="button"
                                     class="inline-flex items-center justify-center rounded-md border-2 border-transparent bg-gray-900 bg-none px-12 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-gray-800">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 mr-3 h-5 w-5" fill="none"
@@ -154,7 +154,7 @@
                                     </svg>
                                     Add to cart
                                 </button>
-                                <!-- </router-link> -->
+                                </router-link>
                             </div>
                             <div v-else>
                                 <router-link to="/login">
