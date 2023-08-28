@@ -51,7 +51,8 @@ const produk = {
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem("token")}`
             }
-            });
+          });
+            alert("Berhasil Menambah Data")
             commit("ADD_TO_CART", response.data)
             console.log(response.data)
         } catch (error) {

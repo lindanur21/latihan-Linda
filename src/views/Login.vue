@@ -50,6 +50,12 @@
                                 class="block w-full cursor-text appearance-none rounded-md border border-gray-400 bg--100 py-2 px-3 text-sm outline-none focus:border-indigo-500 focus:bg-white focus:text-gray-600 focus:shadow"
                                 id="email" v-model="email" placeholder="Enter your email" autofocus="" />
                         </div>
+                        <!-- <div class="mb-4">
+                            <label for="alamat" class="mb-2 inline-block text-xs font-medium uppercase text-gray-700">Alamat</label>
+                            <input type="text"
+                                class="block w-full cursor-text appearance-none rounded-md border border-gray-400 bg--100 py-2 px-3 text-sm outline-none focus:border-indigo-500 focus:bg-white focus:text-gray-600 focus:shadow"
+                                id="alamat" v-model="text" placeholder="Enter your address" autofocus="" />
+                        </div> -->
                         <div class="mb-4">
                             <div class="flex justify-between">
                                 <label class="mb-2 inline-block text-xs font-medium uppercase text-gray-700"
@@ -102,6 +108,7 @@ export default {
         return {
             email: '',
             password: '',
+            alamat: '',
         };
     },
     computed: {
@@ -113,6 +120,7 @@ export default {
             const credentials = {
                 email: this.email,
                 password: this.password,
+                // alamat: this.alamat,
             };
 
             const success = await this.login(credentials);

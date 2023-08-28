@@ -5,6 +5,7 @@ import kategori from "./modules/kategori";
 import product from "./modules/product";
 //import keranjang from "./modules/keranjang";
 import cart from "./modules/cart";
+import order from "./modules/order";
 
 const store = createStore({
     state: {
@@ -16,7 +17,8 @@ const store = createStore({
         kategori,
         product,
         //keranjang,
-        cart
+        cart,
+        order
     },
 });
 

@@ -11,6 +11,7 @@ import Cart from "../views/Cart.vue";
 import Merk from "../views/Merk.vue";
 import Kategori from "../views/Kategori.vue";
 import Profile from "../views/Profile.vue";
+import PageOrder from "../views/PageOrder.vue";
 
 const routes = [
     {
@@ -55,7 +56,13 @@ const routes = [
     name: "Checkout",
     component: () => import("../views/Checkout.vue"),
     meta: { requiresLogin: true },
-  },
+    },
+    {
+        path:"/order/:orderCode",
+        name: "PageOrder",
+        component: PageOrder,
+        props: true,
+    },
     {
         path: "/cart",
         name: "Cart",
@@ -105,5 +112,16 @@ router.beforeEach((to, from, next) => {
         next();
     }
 });
+
+function cekToken(to, from, next) {
+    var isAuthenticated = false;
+    if (localStorage.getItem("token")) isAuthenticated = true;
+    else isAuthenticated = false;
+    if (isAuthenticated) {
+      next();
+    } else {
+      next("/login");
+    }
+  }
 
 export default router;

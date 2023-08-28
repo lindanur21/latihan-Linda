@@ -8,6 +8,7 @@
         </div>
         <h1 class="my-1 text-center text-xl font-bold leading-8 text-gray-900">{{ user.name }}</h1>
         <h3 class="font-lg text-semibold text-center leading-6 text-gray-600">{{ user.email }}</h3>
+        <!-- <h3 class="font-lg text-semibold text-center leading-6 text-gray-600">{{ user.alamat }}</h3> -->
         <p class="text-center text-sm leading-6 text-gray-500 hover:text-gray-600">Pelajar SMK Assalaam Bandung</p>
         <ul class="mt-3 divide-y rounded bg-gray-100 py-2 px-3 text-gray-600 shadow-sm hover:text-gray-700 hover:shadow">
           <li class="flex items-center py-3 text-sm">
@@ -26,17 +27,17 @@ import { mapGetters, mapActions } from 'vuex';
 
 export default {
     computed: {
-        ...mapGetters("auth", ["getUser"]),
+    ...mapGetters("auth", ["getUser"]),
         user() {
-            return this.getUser;
+          return this.getUser;
         },
     },
     methods: {
-        ...mapActions("auth", ["getUserInfo"]),
+      ...mapActions("auth", ["getUserInfo"]),
     },
     async mounted() {
         // fetch user information
-        const user = await this.getUserInfo();
+      const user = await this.getUserInfo();
 
         // if user information is retrieved, update the store
         if (user) {

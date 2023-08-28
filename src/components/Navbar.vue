@@ -113,6 +113,7 @@ export default {
 
                     </a>
                 </router-link> -->
+
                 <button @click="logout" type="button"
                     class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                     Logout
@@ -131,7 +132,7 @@ export default {
                     <li>
                         <router-link to="/"
                             class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
-                            aria-current="page">Home
+                            aria-current="page">Beranda
                         </router-link>
                     </li>
                     <li>
