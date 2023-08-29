@@ -6,7 +6,7 @@
           <h1 class="mb-4 text-3xl font-black sm:text-5xl xl:text-6xl">Contact us</h1>
           <div class="text-lg sm:text-xl xl:text-xl">
             <div class="text-gray-900">
-              <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+              <!-- <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->
             </div>
           </div>
         </div>

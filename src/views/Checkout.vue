@@ -151,7 +151,7 @@
 </template> -->
 <template>
   <div class="flex flex-col items-center border-b bg-white py-4 sm:flex-row sm:px-10 lg:px-20 xl:px-32">
-    <a href="#" class="text-2xl font-bold text-gray-800">sneekpeeks</a>
+    <a href="#" class="text-2xl font-bold text-gray-800">Carousell</a>
     <div class="mt-4 py-2 text-xs sm:mt-0 sm:ml-auto sm:text-base">
       <div class="relative">
         <ul class="relative flex w-full items-center justify-between space-x-2 sm:space-x-4">
@@ -192,7 +192,7 @@
       <div class="mt-8 space-y-3 rounded-lg border bg-white px-2 py-4 sm:px-6">
         <div v-for="product in getCart" :key="product.cart_id" class="flex flex-col rounded-lg bg-white sm:flex-row">
           <img class="m-2 h-24 w-28 rounded-md border object-cover object-center"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2dU3hIRKnft40eFVAwTxnEhFRGBGzaVlUaYFKLOlF3-ZRECCi9_oRQbX6u4z37j6K3AU&usqp=CAU"
+            src="../assets/casing hp.jpg"
             alt="" />
           <div class="flex w-full flex-col px-4 py-4">
             <span class="font-semibold">{{ product.name }}</span>
@@ -253,7 +253,7 @@
           </label>
         </div>
         <div class="relative">
-          <input class="peer hidden" id="radio_4" type="radio" value="cash_on_delivery" v-model="deliveryType" />
+          <input class="peer hidden" id="radio_4" type="radio" value="payment_wallet" v-model="paymentType" />
           <span
             class="peer-checked:border-gray-700 absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
           <label
@@ -287,11 +287,11 @@
             </svg>
           </div>
         </div>
-        <label for="card-holder" class="mt-4 mb-2 block text-sm font-medium">Card Holder</label>
+        <label for="card-holder" class="mt-4 mb-2 block text-sm font-medium">Alamat</label>
         <div class="relative">
-          <input type="text" id="card-holder" name="card-holder"
+          <input type="text" id="alamat" name="alamat"
             class="w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm uppercase shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
-            placeholder="Your full name here" />
+            placeholder="alamat" />
           <div class="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24"
               stroke="currentColor" stroke-width="2">
@@ -300,7 +300,7 @@
             </svg>
           </div>
         </div>
-        <label for="card-no" class="mt-4 mb-2 block text-sm font-medium">Card Details</label>
+        <!-- <label for="card-no" class="mt-4 mb-2 block text-sm font-medium">Card Details</label>
         <div class="flex">
           <div class="relative w-7/12 flex-shrink-0">
             <input type="text" id="card-no" name="card-no"
@@ -340,18 +340,18 @@
           <input type="text" name="billing-zip"
             class="flex-shrink-0 rounded-md border border-gray-200 px-4 py-3 text-sm shadow-sm outline-none sm:w-1/6 focus:z-10 focus:border-blue-500 focus:ring-blue-500"
             placeholder="ZIP" />
-        </div>
+        </div> -->
 
         <!-- Total -->
         <div class="mt-6 border-t border-b py-2">
           <div class="flex items-center justify-between">
             <p class="text-sm font-medium text-gray-900">Subtotal</p>
-            <p class="font-semibold text-gray-900">$399.00</p>
+            <p class="font-semibold text-gray-900">Rp.{{ totalHarga() }}</p>
           </div>
-          <div class="flex items-center justify-between">
+          <!-- <div class="flex items-center justify-between">
             <p class="text-sm font-medium text-gray-900">Shipping</p>
             <p class="font-semibold text-gray-900">$8.00</p>
-          </div>
+          </div> -->
         </div>
         <div class="mt-6 flex items-center justify-between">
           <p class="text-sm font-medium text-gray-900">Total</p>
